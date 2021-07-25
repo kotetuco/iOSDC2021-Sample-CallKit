@@ -7,6 +7,8 @@
 
 import Combine
 import Foundation
+import SharedConstants
+import UserDefaultsUtilities
 
 enum AlertType {
     case invalidInput
@@ -23,12 +25,17 @@ final class SubmitViewModel: ObservableObject {
     @Published var alertStatus: AlertType?
 
     private let callKitDriver: CallDirectoryDriverInterface
+    private let userDefaultsDriver: UserDefaultsDriverInterface
     private var cancellables: [AnyCancellable] = []
 
-    init(phoneNumber: String = "", displayName: String = "", callKitDriver: CallDirectoryDriverInterface) {
+    init(phoneNumber: String = "",
+         displayName: String = "",
+         callKitDriver: CallDirectoryDriverInterface,
+         userDefaultsDriver: UserDefaultsDriverInterface) {
         self.phoneNumberText = phoneNumber
         self.displayName = displayName
         self.callKitDriver = callKitDriver
+        self.userDefaultsDriver = userDefaultsDriver
     }
 
     func callDirectopryStatus() {
@@ -62,6 +69,9 @@ final class SubmitViewModel: ObservableObject {
         alertStatus = nil
 
         submitEnabled = false
+
+        userDefaultsDriver.set(string: phoneNumberText, forKey: UserDefaultsKeys.phoneNumber.rawValue)
+        userDefaultsDriver.set(string: displayName, forKey: UserDefaultsKeys.displayName.rawValue)
 
         callKitDriver.register(phoneNumber: phoneNumber, displayName: displayName)
             .subscribe(on: DispatchQueue.global())

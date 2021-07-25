@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import SharedConstants
+import UserDefaultsUtilities
 
 @main
 struct CallDirectorySampleApp: App {
     var body: some Scene {
         WindowGroup {
-            let driver = CallDirectoryDriver(identifier: "co.kotetu.example.displayname.calldirectory")
-            SubmitView(viewModel: SubmitViewModel(callKitDriver: driver))
+            let callDirectoryDriver = CallDirectoryDriver(identifier: "co.kotetu.example.displayname.calldirectory")
+            let userDefaultsDriver = UserDefaultsDriver(appGroupID: AppConstants.appGroupID)
+            SubmitView(viewModel: SubmitViewModel(callKitDriver: callDirectoryDriver, userDefaultsDriver: userDefaultsDriver))
         }
     }
 }

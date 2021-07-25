@@ -64,11 +64,3 @@ extension UIApplication {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
-
-struct SubmitView_Previews: PreviewProvider {
-    static var previews: some View {
-        // TODO: Use Dummy Driver
-        let driver = CallDirectoryDriver(identifier: "co.kotetu.example.displayname.calldirectory")
-        SubmitView(viewModel: SubmitViewModel(callKitDriver: driver))
-    }
-}
