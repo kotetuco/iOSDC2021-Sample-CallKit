@@ -63,6 +63,8 @@
 		9CB7995626AD40B5006FDCB2 /* SubmitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitViewModel.swift; sourceTree = "<group>"; };
 		9CB7995826AD4BC0006FDCB2 /* CallDirectoryDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryDriver.swift; sourceTree = "<group>"; };
 		9CB7995A26AD6583006FDCB2 /* CallDirectoryDriverInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryDriverInterface.swift; sourceTree = "<group>"; };
+		9CB7995D26AD68BB006FDCB2 /* CallDirectorySample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CallDirectorySample.entitlements; sourceTree = "<group>"; };
+		9CB7995E26AD6937006FDCB2 /* CallDirectoryExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CallDirectoryExtension.entitlements; sourceTree = "<group>"; };
 		9CEA792A26AD340400375E03 /* CallDirectorySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallDirectorySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEA792D26AD340400375E03 /* CallDirectorySampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectorySampleApp.swift; sourceTree = "<group>"; };
 		9CEA792F26AD340400375E03 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		9CEA792C26AD340400375E03 /* CallDirectorySample */ = {
 			isa = PBXGroup;
 			children = (
+				9CB7995D26AD68BB006FDCB2 /* CallDirectorySample.entitlements */,
 				9CEA792D26AD340400375E03 /* CallDirectorySampleApp.swift */,
 				9CEA792F26AD340400375E03 /* SubmitView.swift */,
 				9CB7995626AD40B5006FDCB2 /* SubmitViewModel.swift */,
@@ -189,6 +192,7 @@
 		9CEA795D26AD361200375E03 /* CallDirectoryExtension */ = {
 			isa = PBXGroup;
 			children = (
+				9CB7995E26AD6937006FDCB2 /* CallDirectoryExtension.entitlements */,
 				9CEA795E26AD361200375E03 /* CallDirectoryHandler.swift */,
 				9CEA796026AD361200375E03 /* Info.plist */,
 			);
@@ -537,6 +541,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CallDirectorySample/CallDirectorySample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"CallDirectorySample/Preview Content\"";
@@ -562,6 +567,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CallDirectorySample/CallDirectorySample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"CallDirectorySample/Preview Content\"";
@@ -669,6 +675,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = CallDirectoryExtension/CallDirectoryExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TXFV3DH636;
@@ -691,6 +698,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = CallDirectoryExtension/CallDirectoryExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TXFV3DH636;
