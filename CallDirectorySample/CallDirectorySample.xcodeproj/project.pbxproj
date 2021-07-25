@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9CEA792E26AD340400375E03 /* CallDirectorySampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA792D26AD340400375E03 /* CallDirectorySampleApp.swift */; };
-		9CEA793026AD340400375E03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA792F26AD340400375E03 /* ContentView.swift */; };
+		9CEA793026AD340400375E03 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA792F26AD340400375E03 /* SubmitView.swift */; };
 		9CEA793226AD340800375E03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CEA793126AD340800375E03 /* Assets.xcassets */; };
 		9CEA793526AD340800375E03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CEA793426AD340800375E03 /* Preview Assets.xcassets */; };
 		9CEA794026AD340900375E03 /* CallDirectorySampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA793F26AD340900375E03 /* CallDirectorySampleTests.swift */; };
@@ -59,7 +59,7 @@
 /* Begin PBXFileReference section */
 		9CEA792A26AD340400375E03 /* CallDirectorySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallDirectorySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEA792D26AD340400375E03 /* CallDirectorySampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectorySampleApp.swift; sourceTree = "<group>"; };
-		9CEA792F26AD340400375E03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9CEA792F26AD340400375E03 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 		9CEA793126AD340800375E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CEA793426AD340800375E03 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9CEA793626AD340800375E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				9CEA792D26AD340400375E03 /* CallDirectorySampleApp.swift */,
-				9CEA792F26AD340400375E03 /* ContentView.swift */,
+				9CEA792F26AD340400375E03 /* SubmitView.swift */,
 				9CEA793126AD340800375E03 /* Assets.xcassets */,
 				9CEA793626AD340800375E03 /* Info.plist */,
 				9CEA793326AD340800375E03 /* Preview Content */,
@@ -345,7 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CEA793026AD340400375E03 /* ContentView.swift in Sources */,
+				9CEA793026AD340400375E03 /* SubmitView.swift in Sources */,
 				9CEA792E26AD340400375E03 /* CallDirectorySampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

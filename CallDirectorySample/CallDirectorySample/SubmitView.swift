@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  SubmitView.swift
 //  CallDirectorySample
 //
 //  Created by kotetu on 2021/07/25.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SubmitView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SubmitView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SubmitView()
     }
 }
