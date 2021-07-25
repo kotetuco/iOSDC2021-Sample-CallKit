@@ -11,7 +11,8 @@ import SwiftUI
 struct CallDirectorySampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let driver = CallDirectoryDriver(identifier: "co.kotetu.example.displayname.calldirectory")
+            SubmitView(viewModel: SubmitViewModel(callKitDriver: driver))
         }
     }
 }
