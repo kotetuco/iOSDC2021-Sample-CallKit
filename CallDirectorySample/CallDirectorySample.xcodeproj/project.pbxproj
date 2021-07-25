@@ -537,7 +537,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"CallDirectorySample/Preview Content\"";
 				DEVELOPMENT_TEAM = TXFV3DH636;
 				ENABLE_PREVIEWS = YES;
@@ -549,6 +550,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.kotetu.example.displayname;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Display Name Example";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -560,7 +562,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"CallDirectorySample/Preview Content\"";
 				DEVELOPMENT_TEAM = TXFV3DH636;
 				ENABLE_PREVIEWS = YES;
@@ -572,6 +575,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.kotetu.example.displayname;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Display Name Example";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -665,7 +669,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TXFV3DH636;
 				INFOPLIST_FILE = CallDirectoryExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -675,6 +680,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.kotetu.example.displayname.calldirectory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Display Name Example Call Directory Extension";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -685,7 +691,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TXFV3DH636;
 				INFOPLIST_FILE = CallDirectoryExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -695,6 +702,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.kotetu.example.displayname.calldirectory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Display Name Example Call Directory Extension";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
