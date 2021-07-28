@@ -18,6 +18,7 @@ final class CallDirectoryHandler: CXCallDirectoryProvider {
     private let userDefaultsDriver = UserDefaultsDriver(appGroupID: AppConstants.appGroupID)
 
     override func beginRequest(with context: CXCallDirectoryExtensionContext) {
+        printToConsole("Start.")
         context.delegate = self
 
         guard let phoneNumberText = userDefaultsDriver.string(forKey: UserDefaultsKeys.phoneNumber.rawValue),
@@ -27,10 +28,20 @@ final class CallDirectoryHandler: CXCallDirectoryProvider {
             return
         }
 
+        printToConsole("phoneNumber:\(phoneNumberText), displayName:\(displayName)")
+
         context.removeAllIdentificationEntries()
         context.addIdentificationEntry(withNextSequentialPhoneNumber: phoneNumber, label: displayName)
 
         context.completeRequest()
+
+        printToConsole("Complete.")
+    }
+
+    private func printToConsole(_ text: String) {
+        #if DEBUG
+        NSLog("[Debug]:" + text)
+        #endif
     }
 }
 
