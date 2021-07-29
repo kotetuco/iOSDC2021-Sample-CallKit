@@ -6,13 +6,23 @@
 //
 
 import CallKit
+import CallDirectoryUtils
 import Combine
 import Foundation
 
 final class CallDirectoryDriver: CallDirectoryDriverInterface {
-    public enum CallDirectoryDriverError: Error {
+    public enum StatusError: Error {
         case internalError
         case unknownStatus
+    }
+
+    public enum RegisterError: Error {
+        case internalError
+        case loadingInterrupted
+        case duplicateEntries
+        case notCompatibleError
+        case invalidInput
+        case unknownError
     }
 
     private let identifier: String
@@ -24,7 +34,7 @@ final class CallDirectoryDriver: CallDirectoryDriverInterface {
     func status() -> Future<Bool, Error> {
         return Future<Bool, Error> { [weak self] promise in
             guard let identifier = self?.identifier, !identifier.isEmpty else {
-                promise(.failure(CallDirectoryDriverError.internalError))
+                promise(.failure(StatusError.internalError))
                 return
             }
             CXCallDirectoryManager.sharedInstance.getEnabledStatusForExtension(withIdentifier: identifier) { status, getStatusError in
@@ -38,9 +48,9 @@ final class CallDirectoryDriver: CallDirectoryDriverInterface {
                 case .disabled:
                     promise(.success(false))
                 case .unknown:
-                    promise(.failure(CallDirectoryDriverError.unknownStatus))
+                    promise(.failure(StatusError.unknownStatus))
                 @unknown default:
-                    promise(.failure(CallDirectoryDriverError.internalError))
+                    promise(.failure(StatusError.internalError))
                 }
             }
         }
@@ -49,15 +59,31 @@ final class CallDirectoryDriver: CallDirectoryDriverInterface {
     func register(phoneNumber: Int, displayName: String) -> Future<Void, Error> {
         return Future<Void, Error> { [weak self] promise in
             guard let identifier = self?.identifier, !identifier.isEmpty else {
-                promise(.failure(CallDirectoryDriverError.internalError))
+                promise(.failure(RegisterError.internalError))
                 return
             }
-            CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: identifier) { reloadError in
-                if let error = reloadError {
-                    promise(.failure(error))
+
+            CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: identifier) { error in
+                guard let relaodError = error else {
+                    promise(.success(()))
                     return
                 }
-                promise(.success(()))
+
+                guard let callDirectoryManagerError = relaodError as? CXErrorCodeCallDirectoryManagerError else {
+                    promise(.failure(RegisterError.unknownError))
+                    return
+                }
+
+                switch callDirectoryManagerError.code {
+                case .loadingInterrupted:
+                    // メモリ上限超過エラー
+                    promise(.failure(RegisterError.loadingInterrupted))
+                case .duplicateEntries:
+                    // 電話番号の二重登録
+                    promise(.failure(RegisterError.duplicateEntries))
+                default:
+                    promise(.failure(RegisterError.notCompatibleError))
+                }
             }
         }
     }

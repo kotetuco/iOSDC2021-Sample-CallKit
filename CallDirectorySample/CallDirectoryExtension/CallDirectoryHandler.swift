@@ -7,14 +7,11 @@
 
 import Foundation
 import CallKit
+import CallDirectoryUtils
 import SharedConstants
 import UserDefaultsUtilities
 
 final class CallDirectoryHandler: CXCallDirectoryProvider {
-    enum CallDirectoryUserError: Error {
-        case invalidParameter
-    }
-
     private let userDefaultsDriver = UserDefaultsDriver(appGroupID: AppConstants.appGroupID)
 
     override func beginRequest(with context: CXCallDirectoryExtensionContext) {
@@ -24,17 +21,32 @@ final class CallDirectoryHandler: CXCallDirectoryProvider {
         guard let phoneNumberText = userDefaultsDriver.string(forKey: UserDefaultsKeys.phoneNumber.rawValue),
               let phoneNumber = CXCallDirectoryPhoneNumber(phoneNumberText),
               let displayName = userDefaultsDriver.string(forKey: UserDefaultsKeys.displayName.rawValue) else {
-            context.cancelRequest(withError: CallDirectoryUserError.invalidParameter)
+            context.cancelRequest(withError: CallDirectoryError.invalidParameter)
             return
         }
+
+        // カスタムエラーを意図的に出したい場合はtrueにしてください。
+        #if false
+        context.cancelRequest(withError: CallDirectoryError.invalidParameter)
+        return
+        #endif
 
         printToConsole("phoneNumber:\(phoneNumberText), displayName:\(displayName)")
 
         context.removeAllIdentificationEntries()
         context.addIdentificationEntry(withNextSequentialPhoneNumber: phoneNumber, label: displayName)
+        // 重複エラーを意図的に出したい場合はtrueにしてください。
+        #if false
+        context.addIdentificationEntry(withNextSequentialPhoneNumber: phoneNumber, label: displayName)
+        #endif
+
+        // メモリサイズオーバーエラーを意図的に出したい場合はtrueにしてください。
+        #if false
+        let tooMatchMemory = Data(count: 1000_000_000)
+        _ = tooMatchMemory.base64EncodedString()
+        #endif
 
         context.completeRequest()
-
         printToConsole("Complete.")
     }
 
