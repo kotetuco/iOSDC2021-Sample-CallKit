@@ -7,5 +7,6 @@
 
 /// TODO: NSErrorで実装し直す
 public enum CallDirectoryError: Error {
+    case gettingAppGroupIDIsFailed
     case invalidParameter
 }

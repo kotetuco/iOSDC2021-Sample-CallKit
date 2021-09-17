@@ -1,0 +1,12 @@
+//
+//  Configurations.xcconfig
+//  CallDirectorySample
+//
+//  Created by kotetu on 2021/08/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_GROUP_ID =
+CALL_DIRECTORY_BUNDLE_IDENTIFER = 

@@ -12,11 +12,16 @@ import SharedConstants
 import UserDefaultsUtilities
 
 final class CallDirectoryHandler: CXCallDirectoryProvider {
-    private let userDefaultsDriver = UserDefaultsDriver(appGroupID: AppConstants.appGroupID)
-
     override func beginRequest(with context: CXCallDirectoryExtensionContext) {
         printToConsole("Start.")
         context.delegate = self
+
+        guard let appGroupID = appGroupID else {
+            context.cancelRequest(withError: CallDirectoryError.gettingAppGroupIDIsFailed)
+            return
+        }
+
+        let userDefaultsDriver = UserDefaultsDriver(suiteName: appGroupID)
 
         guard let phoneNumberText = userDefaultsDriver.string(forKey: UserDefaultsKeys.phoneNumber.rawValue),
               let phoneNumber = CXCallDirectoryPhoneNumber(phoneNumberText),
@@ -48,6 +53,10 @@ final class CallDirectoryHandler: CXCallDirectoryProvider {
 
         context.completeRequest()
         printToConsole("Complete.")
+    }
+
+    private var appGroupID: String? {
+        Bundle.main.object(forInfoDictionaryKey: "AppGroupID") as? String
     }
 
     private func printToConsole(_ text: String) {

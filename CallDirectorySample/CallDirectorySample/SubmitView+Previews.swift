@@ -5,15 +5,33 @@
 //  Created by kotetu on 2021/07/25.
 //
 
+import Combine
 import SharedConstants
 import SwiftUI
 import UserDefaultsUtilities
 
 struct SubmitView_Previews: PreviewProvider {
     static var previews: some View {
-        // TODO: Use Dummy Driver
-        let callDirectoryDriver = CallDirectoryDriver(identifier: "co.kotetu.example.displayname.calldirectory")
-        let userDefaultsDriver = UserDefaultsDriver(appGroupID: AppConstants.appGroupID)
-        SubmitView(viewModel: SubmitViewModel(callKitDriver: callDirectoryDriver, userDefaultsDriver: userDefaultsDriver))
+        SubmitView(viewModel: SubmitViewModel(callKitDriver: CallDirectoryDriverDummy(),
+                                              userDefaultsDriver: UserDefaultsDriverDummy()))
+    }
+
+    final class CallDirectoryDriverDummy: CallDirectoryDriverInterface {
+        func status() -> Future<Bool, Error> {
+            Future<Bool, Error> { promise in
+                promise(.success(true))
+            }
+        }
+
+        func register(phoneNumber: Int, displayName: String) -> Future<Void, Error> {
+            Future<Void, Error> { promise in
+                promise(.success(()))
+            }
+        }
+    }
+
+    final class UserDefaultsDriverDummy: UserDefaultsDriverInterface {
+        func set(string: String, forKey: String) {}
+        func string(forKey: String) -> String? { nil }
     }
 }

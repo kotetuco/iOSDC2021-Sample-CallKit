@@ -13,17 +13,24 @@ public protocol UserDefaultsDriverInterface {
 }
 
 public final class UserDefaultsDriver: UserDefaultsDriverInterface {
-    private let appGroupID: String
+    private let suiteName: String?
 
-    public init(appGroupID: String) {
-        self.appGroupID = appGroupID
+    public init(suiteName: String? = nil) {
+        self.suiteName = suiteName
     }
 
     public func set(string: String, forKey: String) {
-        UserDefaults(suiteName: appGroupID)?.setValue(string, forKey: forKey)
+        guard let suiteName = suiteName else {
+            UserDefaults.standard.setValue(string, forKey: forKey)
+            return
+        }
+        UserDefaults(suiteName: suiteName)?.setValue(string, forKey: forKey)
     }
 
     public func string(forKey: String) -> String? {
-        return UserDefaults(suiteName: appGroupID)?.string(forKey: forKey)
+        guard let suiteName = suiteName else {
+            return UserDefaults.standard.string(forKey: forKey)
+        }
+        return UserDefaults(suiteName: suiteName)?.string(forKey: forKey)
     }
 }

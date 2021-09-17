@@ -39,6 +39,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>AppGroupID</key>
+	<string>$(APP_GROUP_ID)</string>
+	<key>CallDirectoryExtensionBundleIdentifier</key>
+	<string>$(CALL_DIRECTORY_BUNDLE_IDENTIFER)</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

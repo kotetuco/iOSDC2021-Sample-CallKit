@@ -25,15 +25,15 @@ final class CallDirectoryDriver: CallDirectoryDriverInterface {
         case unknownError
     }
 
-    private let identifier: String
+    private let bundleIdentifier: String
 
-    init(identifier: String) {
-        self.identifier = identifier
+    init(bundleIdentifier: String) {
+        self.bundleIdentifier = bundleIdentifier
     }
 
     func status() -> Future<Bool, Error> {
         return Future<Bool, Error> { [weak self] promise in
-            guard let identifier = self?.identifier, !identifier.isEmpty else {
+            guard let identifier = self?.bundleIdentifier, !identifier.isEmpty else {
                 promise(.failure(StatusError.internalError))
                 return
             }
@@ -58,7 +58,7 @@ final class CallDirectoryDriver: CallDirectoryDriverInterface {
 
     func register(phoneNumber: Int, displayName: String) -> Future<Void, Error> {
         return Future<Void, Error> { [weak self] promise in
-            guard let identifier = self?.identifier, !identifier.isEmpty else {
+            guard let identifier = self?.bundleIdentifier, !identifier.isEmpty else {
                 promise(.failure(RegisterError.internalError))
                 return
             }
