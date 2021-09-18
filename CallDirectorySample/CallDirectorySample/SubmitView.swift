@@ -19,13 +19,16 @@ struct SubmitView: View {
             VStack {
                 Text("Please input phone number and display name.")
                     .padding()
+
                 TextField("Phone Number", text: $viewModel.phoneNumberText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.phonePad)
                     .padding()
+
                 TextField("Display Name", text: $viewModel.displayName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
+
                 Button("Submit") {
                     UIApplication.shared.endEditing()
                     viewModel.submit()
@@ -39,10 +42,10 @@ struct SubmitView: View {
                 Alert(title: Text(alertMessage))
             })
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             viewModel.callDirectopryStatus()
         }
-
     }
 
     private var alertMessage: String {
