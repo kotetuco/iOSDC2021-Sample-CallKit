@@ -6,9 +6,8 @@
 //
 
 import Combine
-import SharedConstants
+import CoreModule
 import SwiftUI
-import UserDefaultsUtilities
 
 struct SubmitView_Previews: PreviewProvider {
     static var previews: some View {

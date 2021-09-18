@@ -6,7 +6,7 @@
 //
 
 import CallKit
-import CallDirectoryUtils
+import CoreModule
 import Combine
 import Foundation
 

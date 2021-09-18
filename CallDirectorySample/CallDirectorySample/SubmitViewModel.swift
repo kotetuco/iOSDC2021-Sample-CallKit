@@ -6,9 +6,8 @@
 //
 
 import Combine
+import CoreModule
 import Foundation
-import SharedConstants
-import UserDefaultsUtilities
 
 enum AlertType {
     case invalidInput

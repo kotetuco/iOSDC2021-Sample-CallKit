@@ -5,9 +5,8 @@
 //  Created by kotetu on 2021/07/25.
 //
 
+import CoreModule
 import SwiftUI
-import SharedConstants
-import UserDefaultsUtilities
 
 @main
 struct CallDirectorySampleApp: App {

@@ -7,9 +7,7 @@
 
 import Foundation
 import CallKit
-import CallDirectoryUtils
-import SharedConstants
-import UserDefaultsUtilities
+import CoreModule
 
 final class CallDirectoryHandler: CXCallDirectoryProvider {
     override func beginRequest(with context: CXCallDirectoryExtensionContext) {
